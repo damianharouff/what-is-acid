@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Wrangler / Cloudflare local state
+.wrangler/
+.dev.vars
+
+# Node (if tooling is ever added)
+node_modules/
+
+# Editor cruft
+.idea/
+.vscode/
+*.swp
