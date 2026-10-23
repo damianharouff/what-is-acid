@@ -5,7 +5,7 @@ A self-contained, static mirror of the classic YTMND site
 by [hookinmouth](https://ytmnd.com/users/hookinmouth), created July 25, 2005
 (YTMND site #103657). A spoof on the SNL "Night at the Roxbury" skit.
 
-**Live mirror:** https://what-is-acid.cekkent.net
+**Live mirror:** https://cekkent.net/what-is-acid/
 
 ## Why this exists
 
@@ -47,10 +47,16 @@ It's fully static — serve `public/` with anything:
 cd public && python3 -m http.server 8080
 ```
 
-The live mirror is deployed to Cloudflare Pages:
+The live mirror is served from the
+[`damianharouff/cekkent.net`](https://github.com/damianharouff/cekkent.net) Cloudflare
+Pages site, where a copy of `public/` lives at `what-is-acid/`. This repo holds the
+source and the original browser-saved files. To publish a change, update `public/`
+here, then copy it into that repo and push:
 
 ```sh
-wrangler pages deploy public --project-name what-is-acid --branch main
+cp -r public/. ../cekkent.net/what-is-acid/
+# keep og:url pointing at the live location
+sed -i 's#https://what-is-acid.cekkent.net/#https://cekkent.net/what-is-acid/#' ../cekkent.net/what-is-acid/index.html
 ```
 
 ## Credits
